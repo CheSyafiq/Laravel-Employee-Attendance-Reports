@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Date;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,21 +13,23 @@ class UsersTableSeeder extends Seeder
                 'id'             => 1,
                 'name'           => 'Admin',
                 'email'          => 'admin@admin.com',
+                'role_type'      => 'a',
                 'password'       => '$2y$10$Vr/mYRcIkhXVoBryt538Au/B/X64uDT91KtDJVrbIQc5IRp2IdPVS',
                 'remember_token' => null,
+                'created_at'     => Date::now(),
+                'updated_at'     => Date::now()
+            ],
+            [
+                'id'             => 2,
+                'name'           => 'User',
+                'email'          => 'user@user.com',
+                'role_type'      => 'u',
+                'password'       => '$2y$10$Vr/mYRcIkhXVoBryt538Au/B/X64uDT91KtDJVrbIQc5IRp2IdPVS',
+                'remember_token' => null,
+                'created_at'     => Date::now(),
+                'updated_at'     => Date::now()
             ]
         ];
-
-        for($i = 1; $i <= 10; $i++)
-        {
-            array_push($users, [
-                'id'             => $i+1,
-                'name'           => 'Employee ' . $i,
-                'email'          => 'employee' . $i . '@employee' . $i . '.com',
-                'password'       => '$2y$10$Vr/mYRcIkhXVoBryt538Au/B/X64uDT91KtDJVrbIQc5IRp2IdPVS',
-                'remember_token' => null,
-            ]);
-        }
 
         User::insert($users);
     }

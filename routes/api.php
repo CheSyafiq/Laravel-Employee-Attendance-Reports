@@ -13,3 +13,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Time Entries
     Route::apiResource('time-entries', 'TimeEntriesApiController');
 });
+
+Route::middleware('api')->group(function () {
+    Route::post('/login', 'Admin\ListingController@login');
+    Route::get('/listing', 'Admin\ListingController@listing');
+});

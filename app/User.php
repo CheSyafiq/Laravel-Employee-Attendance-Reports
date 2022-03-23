@@ -2,14 +2,15 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Hash;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Listing;
+use Carbon\Carbon;
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -33,6 +34,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_type',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -75,5 +77,10 @@ class User extends Authenticatable
     public function timeEntries()
     {
         return $this->hasMany(TimeEntry::class);
+    }
+
+    public function listing()
+    {
+        return $this->belongsToMany(Listing::class);
     }
 }

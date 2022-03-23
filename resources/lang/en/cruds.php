@@ -65,6 +65,22 @@ return [
             'deleted_at_helper'        => '',
         ],
     ],
+    'listing'           => [
+        'title'          => 'Listing',
+        'title_singular' => 'Listing',
+        'fields'         => [
+            'id'                       => 'ID',
+            'id_helper'                => '',
+            'name'                     => 'Name',
+            'name_helper'              => '',
+            'latitude'                     => 'Latitude',
+            'latitude_helper'              => '',
+            'longitude'                     => 'Longitude',
+            'longitude_helper'              => '',
+            'user'                     => 'User',
+            'user_helper'              => '',
+        ],
+    ],
     'timeEntry'      => [
         'title'          => 'Time Entries',
         'title_singular' => 'Time Entry',
